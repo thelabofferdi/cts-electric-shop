@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; font-family: Manrope, sans-serif; background: #0b0f24; color: #f7f4ed; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: #0b0f24; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #0b0f24; color: #f7f4ed; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+h1, h2, h3, h4 { font-family: Sora, sans-serif; }
+
+.shop-shell {
+  background:
+    radial-gradient(circle at 84% 6%, rgba(230,0,45,.15), transparent 24rem),
+    radial-gradient(circle at 5% 32%, rgba(83,98,180,.14), transparent 30rem),
+    #0b0f24;
+}
+.public-shell {
+  background:
+    radial-gradient(circle at 88% 7%, rgba(230,0,45,.12), transparent 25rem),
+    radial-gradient(circle at 4% 34%, rgba(83,98,180,.12), transparent 30rem),
+    #0b0f24;
+  color: #f7f4ed;
+}
+.section-kicker { display: inline-flex; align-items: center; gap: .65rem; color: #e6002d; font-size: .66rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+.section-kicker::before { content: ""; width: 1.35rem; height: 2px; border-radius: 999px; background: currentColor; }
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, rgba(230,0,45,.5), rgba(83,98,180,.35), rgba(230,0,45,.18), rgba(11,15,36,.12));
+  background-size: 300% 300%;
+  animation: gradient-shift 14s ease infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.marquee-track { animation: marquee 28s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.brand-track { animation: brand-marquee 34s linear infinite; }
+@keyframes brand-marquee { to { transform: translateX(-50%); } }
+.glass { background: rgba(20,26,56,.72); border: 1px solid rgba(174,182,209,.15); backdrop-filter: blur(18px); }
+.text-gradient { background: linear-gradient(120deg, #fff 15%, #ff91a6 55%, #e6002d 100%); -webkit-background-clip: text; color: transparent; }
+.grid-lines { background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 42px 42px; }
+.noise::after { content: ""; position: absolute; inset: 0; opacity: .025; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E"); }
+.product-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(6,9,25,.86)); pointer-events: none; }
+.product-media img { transition: transform .65s ease; }
+.product-card:hover .product-media img { transform: scale(1.055); }
+.img-zoom img { transition: transform .7s ease-out; }
+.img-zoom:hover img { transform: scale(1.08); }
+.shine { position: relative; overflow: hidden; }
+.shine::after { content: ""; position: absolute; top: -120%; left: -50%; width: 40%; height: 300%; transform: rotate(25deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); transition: left .75s ease; }
+.shine:hover::after { left: 125%; }
+.field { width: 100%; border-radius: 14px; border: 1px solid rgba(174,182,209,.2); background: rgba(11,15,36,.72); color: #fff; padding: .78rem .92rem; outline: none; transition: border .2s, box-shadow .2s; }
+.field:focus { border-color: rgba(230,0,45,.75); box-shadow: 0 0 0 3px rgba(230,0,45,.12); }
+.field::placeholder { color: #7f88aa; }
+.field option { background: #151a38; }
+.scroll-thin::-webkit-scrollbar { width: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: rgba(174,182,209,.24); border-radius: 999px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .marquee-track,
+  .brand-track,
+  .bg-gradient-animated {
+    animation: none !important;
+  }
+}
+
+/* Local light storefront preview: preserve CTS red/indigo accents while improving readability. */
+:root { color-scheme: light; background: #f7f8fc; color: #10152f; }
+html, body { background: #f7f8fc; color: #10152f; }
+.public-shell {
+  background:
+    radial-gradient(circle at 88% 7%, rgba(230,0,45,.08), transparent 25rem),
+    radial-gradient(circle at 4% 34%, rgba(83,98,180,.08), transparent 30rem),
+    #f7f8fc;
+  color: #10152f;
+}
+.public-shell [class*="bg-[#0b0f24]"],
+.public-shell [class*="bg-[#121731]"],
+.public-shell [class*="bg-[#151a38]"],
+.public-shell [class*="bg-[#171d41]"],
+.public-shell [class*="bg-[#111631]"],
+.public-shell [class*="bg-[#080b1a]"] { background-color: #ffffff; }
+.public-shell [class~="bg-white/[.035]"],
+.public-shell [class~="bg-white/5"] { background-color: rgba(16,21,47,.045); }
+.public-shell [class~="border-white/10"],
+.public-shell [class~="border-white/15"] { border-color: rgba(16,21,47,.13); }
+.public-shell [class~="text-white"] { color: #10152f; }
+.public-shell [class~="hover:text-white"]:hover { color: #10152f; }
+.public-shell [class~="bg-cts-red"] [class~="text-white"],
+.public-shell.bg-cts-red,
+.public-shell [class~="bg-cts-red"] { color: #ffffff; }
+.public-shell .text-gradient { background: linear-gradient(120deg, #10152f 15%, #c60028 55%, #e6002d 100%); -webkit-background-clip: text; }
+.public-shell .grid-lines { background-image: linear-gradient(rgba(16,21,47,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(16,21,47,.045) 1px, transparent 1px); }
+.public-shell .product-media::after { background: linear-gradient(180deg, transparent 40%, rgba(16,21,47,.58)); }
+.public-shell .field { background: #ffffff; color: #10152f; border-color: rgba(16,21,47,.18); }
+.public-shell .field::placeholder { color: #69718f; }
+.public-shell .field option { background: #ffffff; color: #10152f; }
+
+/* Local light storefront preview: preserve CTS red/indigo accents while
+   replacing the public shop's dark surfaces with a light presentation. */
+:root { color-scheme: light; background: #f7f8fc; color: #10152f; }
+html, body { background: #f7f8fc; color: #10152f; }
+
+.public-shell {
+  background:
+    radial-gradient(circle at 88% 7%, rgba(230,0,45,.08), transparent 25rem),
+    radial-gradient(circle at 4% 34%, rgba(83,98,180,.08), transparent 30rem),
+    #f7f8fc;
+  color: #10152f;
+}
+.public-shell [class*="bg-[#0b0f24]"],
+.public-shell [class*="bg-[#121731]"],
+.public-shell [class*="bg-[#151a38]"],
+.public-shell [class*="bg-[#171d41]"],
+.public-shell [class*="bg-[#111631]"] {
+  background-color: #ffffff;
+}
+.public-shell [class*="bg-[#080b1a]"] {
+  background-color: #eef1f8;
+}
+.public-shell [class~="bg-white/5"],
+.public-shell [class~="bg-white/[.035]"],
+.public-shell [class~="bg-white/[.03]"] {
+  background-color: rgba(16,21,47,.045);
+}
+.public-shell [class~="border-white/10"],
+.public-shell [class~="border-white/15"] {
+  border-color: rgba(16,21,47,.14);
+}
+.public-shell [class~="text-white"] {
+  color: #10152f;
+}
+.public-shell [class~="text-white/85"] {
+  color: rgba(16,21,47,.82);
+}
+.public-shell [class~="text-cts-mist"] {
+  color: #5d6682;
+}
+.public-shell [class~="hover:bg-white/5"]:hover,
+.public-shell [class~="hover:bg-white/10"]:hover {
+  background-color: rgba(16,21,47,.07);
+}
+.public-shell [class~="bg-cts-red"][class~="text-white"] {
+  color: #ffffff;
+}
+.public-shell .grid-lines {
+  background-image:
+    linear-gradient(rgba(16,21,47,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,21,47,.045) 1px, transparent 1px);
+}
+.public-shell .glass {
+  background: rgba(255,255,255,.78);
+  border-color: rgba(16,21,47,.14);
+}
+.public-shell .text-gradient {
+  background: linear-gradient(120deg, #10152f 15%, #c50028 55%, #e6002d 100%);
+  -webkit-background-clip: text;
+}
+.public-shell .product-media::after {
+  background: linear-gradient(180deg, transparent 40%, rgba(16,21,47,.28));
+}
+
+/* Light storefront harmonisation: keep navy as a brand accent, not as a full-width section background. */
+.public-shell [class*="bg-cts-navy"],
+.public-shell [class*="bg-cts-panel"],
+.public-shell [class*="bg-[#10152f]"] {
+  background-color: #ffffff;
+}
+.public-shell [class*="bg-[#0e132c]"],
+.public-shell [class*="bg-[#111631]"],
+.public-shell [class*="bg-[#171d41]"] {
+  background-color: #ffffff;
+}
+.public-shell [class~="text-white/70"],
+.public-shell [class~="text-white/60"],
+.public-shell [class~="text-white/50"] {
+  color: #68718d;
+}
+.public-shell [class~="shadow-card"] {
+  box-shadow: 0 18px 45px rgba(16,21,47,.10);
+}
+.public-shell .process-card,
+.public-shell .product-card {
+  background-color: #ffffff;
+  border-color: rgba(16,21,47,.12);
+}
+
+/* Light storefront navbar contrast */
+.public-shell header[class*="bg-[#0b0f24]"] {
+  background: rgba(255,255,255,.94);
+  border-color: rgba(16,21,47,.14);
+  box-shadow: 0 10px 30px rgba(16,21,47,.08);
+}
+.public-shell header [class*="text-white/65"],
+.public-shell header [class*="text-white/75"],
+.public-shell header [class*="text-white/60"] {
+  color: #34405e;
+}
+.public-shell header [class*="hover:text-white"]:hover {
+  color: #10152f;
+}
+.public-shell header [class*="bg-white/5"]:hover {
+  background-color: rgba(16,21,47,.07);
+}
+.public-shell header [class*="border-white/10"] {
+  border-color: rgba(16,21,47,.14);
+}
+.public-shell header button[class*="text-white"],
+.public-shell header button span[class*="bg-white"] {
+  color: #10152f;
+  background-color: #10152f;
+}
+
+/* Exhaustive light-theme contrast pass. Tailwind opacity variants such as
+   text-white/80 are distinct class tokens and need an explicit light mapping. */
+.public-shell [class*="text-white/"] {
+  color: #5d6682;
+}
+.public-shell [class*="text-white/"][class*="text-white/[.05]"] {
+  color: #d8dce8;
+}
+.public-shell [class*="border-white/"] {
+  border-color: rgba(16,21,47,.14);
+}
+
+/* Keep genuine image overlays readable. */
+.public-shell .product-media [class~="text-white"],
+.public-shell .product-media [class*="text-white/"],
+.public-shell .product-media [class*="bg-black"] {
+  color: #ffffff;
+}
+.public-shell .product-media [class*="border-white/"] {
+  border-color: rgba(255,255,255,.28);
+}
+
+/* Keep copy white only when it really sits on the CTS red conversion panel. */
+.public-shell [class*="from-cts-red"] {
+  color: #ffffff;
+}
+.public-shell [class*="from-cts-red"] [class*="text-white/"] {
+  color: rgba(255,255,255,.82);
+}
+.public-shell [class~="bg-cts-red"] [class~="text-white"] {
+  color: #ffffff;
+}
+
+/* Le CTA final reste navy volontairement : le texte y reste clair malgré les overrides light. */
+.public-shell .navy-cta {
+  color: #ffffff;
+}
+.public-shell .navy-cta [class~="text-white"] {
+  color: #ffffff;
+}
+.public-shell .navy-cta [class*="text-white/"] {
+  color: rgba(255,255,255,.78);
+}
+.public-shell .navy-cta [class~="text-cts-mist"] {
+  color: #aeb6d1;
+}
+.public-shell .navy-cta [class*="border-white/"] {
+  border-color: rgba(255,255,255,.2);
+}
+
+/* Native select menus in the dark admin dashboard need explicit option colors. */
+.admin-dashboard select { color-scheme: dark; }
+.admin-dashboard select option {
+  color: #f7f4ed;
+  background-color: #151a38;
+}
+.admin-dashboard select option:checked,
+.admin-dashboard select option:hover {
+  color: #ffffff;
+  background-color: #30395f;
+}
+
+/* Refined light storefront and cinematic electric-mobility hero. */
+.public-shell {
+  background: #f7f8fc;
+  color: #10152f;
+}
+.shop-hero {
+  min-height: 650px;
+  background: #101522;
+  isolation: isolate;
+}
+.public-shell .shop-hero [class~="text-white"],
+.public-shell .shop-hero [class*="text-white/"] {
+  color: #fff;
+}
+.public-shell .shop-hero [class~="text-cts-mist"] { color: #c2c9d9; }
+.public-shell .shop-hero [class*="border-white/"] { border-color: rgba(255,255,255,.22); }
+.public-shell .shop-hero__copy > p:first-of-type { color: #c2c9d9; }
+.public-shell .shop-hero__copy [class*="bg-white/10"] { background-color: rgba(255,255,255,.1); }
+.public-shell .shop-hero__copy .shop-hero__secondary {
+  color: #fff;
+  background-color: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.34);
+}
+.public-shell .shop-hero__copy .shop-hero__secondary:hover { background-color: rgba(255,255,255,.19); }
+.public-shell .shop-hero__copy .shop-hero__proof { color: #e0e5ef; }
+.public-shell .shop-hero__bike [class~="text-white"],
+.public-shell .shop-hero__bike [class*="text-white/"] { color: #fff; }
+.public-shell .shop-hero__bike [class~="text-cts-mist"] { color: #d3d9e5; }
+.public-shell .shop-hero__bike [class*="bg-[#151a38]"] { background-color: rgba(16,21,47,.78); }
+.public-shell .shop-hero__bike [class*="border-white/"] { border-color: rgba(255,255,255,.23); }
+.public-shell .shop-hero__bike .glass {
+  background: rgba(13,18,31,.76);
+  border-color: rgba(255,255,255,.19);
+}
+.public-shell .shop-hero__bike .glass [class*="text-white/"],
+.public-shell .shop-hero__bike .glass [class~="text-cts-mist"] { color: #e0e5ef; }
+.public-shell .shop-hero__bike .glass [class~="text-white"] { color: #fff; }
+.public-shell .shop-hero > a { color: #dce2ed; }
+.shop-hero__image {
+  position: absolute;
+  inset: 0;
+  background-image: url("/products/volt-city.jpg");
+  background-position: center 45%;
+  background-size: cover;
+  opacity: .38;
+  transform: scale(1.035);
+}
+.shop-hero__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,14,24,.97) 0%, rgba(10,14,24,.9) 42%, rgba(10,14,24,.64) 72%, rgba(10,14,24,.7) 100%), linear-gradient(0deg, rgba(10,14,24,.48), transparent 45%);
+}
+.shop-hero__orb {
+  position: absolute;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 999px;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.shop-hero__orb--red {
+  right: 11%;
+  top: 4%;
+  background: rgba(230,0,45,.25);
+}
+.shop-hero__orb--blue {
+  left: -14rem;
+  bottom: -18rem;
+  background: rgba(59,86,150,.24);
+}
+.shop-hero__bike img {
+  object-position: center 52%;
+  transition: transform .9s cubic-bezier(.2,.7,.2,1);
+}
+.shop-hero__bike:hover img {
+  transform: scale(1.045);
+}
+.shop-process {
+  background-image: radial-gradient(circle at 84% 0%, rgba(230,0,45,.14), transparent 26rem), linear-gradient(125deg, #10152f, #151b38 70%, #10152f);
+  color: #fff;
+}
+.public-shell .shop-process,
+.public-shell .shop-process [class~="text-white"] {
+  color: #fff;
+}
+.public-shell .shop-process [class*="text-white/"] {
+  color: #d5dced;
+}
+.public-shell .shop-process .section-kicker {
+  color: #ff526f;
+}
+.public-shell .shop-process article {
+  color: #fff;
+  background: rgba(255,255,255,.075);
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 14px 34px rgba(0,0,0,.12);
+}
+.public-shell .shop-process article:hover {
+  background: rgba(255,255,255,.105);
+  border-color: rgba(255,98,123,.42);
+}
+.public-shell .shop-process article h3 { color: #fff; }
+.public-shell .shop-process article p { color: #d5dced; }
+.public-shell .shop-process article [class*="text-white/[.07]"] {
+  color: rgba(255,255,255,.22);
+}
+.public-shell .shop-process article [class*="bg-cts-red/15"] {
+  color: #ff7188;
+  background-color: rgba(230,0,45,.2);
+}
+.shop-final-cta {
+  color: #fff;
+  background-image: linear-gradient(112deg, #10152f 10%, #1a2142 68%, #23162a);
+}
+.public-shell .shop-final-cta,
+.public-shell .shop-final-cta [class~="text-white"] { color: #fff; }
+.public-shell .shop-final-cta [class*="text-white/"] { color: #d5dced; }
+.public-shell .shop-final-cta .section-kicker { color: #ff7188; }
+.public-shell .shop-final-cta [class~="bg-cts-red"] { color: #fff; }
+@media (max-width: 640px) {
+  .shop-hero { min-height: 0; }
+  .shop-hero__image { background-position: 58% center; opacity: .29; }
+  .shop-hero__shade { background: linear-gradient(90deg, rgba(10,14,24,.94), rgba(10,14,24,.78)), linear-gradient(0deg, rgba(10,14,24,.58), transparent); }
+}

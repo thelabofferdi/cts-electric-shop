@@ -1,0 +1,17 @@
+import type { ShopConfig, ShopProduct } from "@/types";
+
+export const defaultConfig: ShopConfig = {
+  enabled: true,
+  announcement: "Groupage motos électriques · demandes ouvertes · places limitées",
+  heroTitle: "La moto électrique de Chine, à votre portée.",
+  heroSubtitle: "CTS sélectionne les modèles, encadre votre demande et organise le groupage depuis la Chine jusqu'au Bénin.",
+  whatsapp: "2290159104705",
+  supportPhone: "+229 01 59 10 47 05",
+  depositNotice: "Un acompte confirme votre place dans le groupage. Le solde et les modalités sont expliqués par l'équipe avant tout paiement.",
+};
+
+export const defaultProducts: ShopProduct[] = [
+  { name: "CTS Volt City", slug: "cts-volt-city", eyebrow: "Mobilité urbaine", shortDescription: "Une moto électrique agile, silencieuse et économique pour les trajets quotidiens.", description: "Pensée pour Cotonou et les déplacements urbains, la Volt City associe une prise en main simple, une batterie amovible et un coût d'utilisation réduit.", imageUrl: "/products/volt-city-electric.jpg", galleryUrls: [], priceCfa: 875000, compareAtPriceCfa: 975000, depositCfa: 175000, rangeKm: 85, maxSpeedKmh: 65, motorPowerW: 3000, chargeHours: 6, batteryLabel: "Lithium 72V 32Ah amovible", colors: ["Noir carbone", "Rouge CTS", "Blanc perle"], features: ["Alarme antivol", "Tableau de bord digital", "Freinage à disque", "Port USB"], availability: "open", groupLabel: "Groupage Septembre 2026", deliveryEstimate: "Livraison estimée sous 8 à 10 semaines après clôture", remainingUnits: 12, featured: true, published: true, sortOrder: 10 },
+  { name: "CTS E-Rider Pro", slug: "cts-e-rider-pro", eyebrow: "Performance & autonomie", shortDescription: "Plus de puissance et d'autonomie pour les trajets longs et les usages professionnels.", description: "La E-Rider Pro offre une accélération franche, une autonomie renforcée et une position de conduite confortable pour rouler davantage sans compromis.", imageUrl: "/products/e-rider-pro-electric.jpg", galleryUrls: [], priceCfa: 1290000, compareAtPriceCfa: 1450000, depositCfa: 250000, rangeKm: 125, maxSpeedKmh: 90, motorPowerW: 5000, chargeHours: 7, batteryLabel: "Lithium 72V 50Ah longue autonomie", colors: ["Noir mat", "Bleu nuit", "Gris titane"], features: ["Double disque", "Démarrage sans clé", "Mode Eco/Sport", "Marche arrière"], availability: "limited", groupLabel: "Groupage Septembre 2026", deliveryEstimate: "Livraison estimée sous 8 à 10 semaines après clôture", remainingUnits: 6, featured: true, published: true, sortOrder: 20 },
+  { name: "CTS Cargo EV", slug: "cts-cargo-ev", eyebrow: "Livraison & activité", shortDescription: "Une configuration robuste pour les livreurs, commerces et professionnels mobiles.", description: "La Cargo EV privilégie la stabilité, la capacité de charge et la fiabilité. Elle convient aux activités de livraison et aux usages intensifs en ville.", imageUrl: "/products/cargo-ev-electric.jpg", galleryUrls: [], priceCfa: 1495000, depositCfa: 300000, rangeKm: 110, maxSpeedKmh: 75, motorPowerW: 4500, chargeHours: 7, batteryLabel: "Lithium 72V 45Ah renforcée", colors: ["Noir utilitaire", "Rouge CTS"], features: ["Porte-bagage renforcé", "Suspension confort", "Mode économie", "Antivol électronique"], availability: "open", groupLabel: "Groupage Octobre 2026", deliveryEstimate: "Livraison estimée sous 9 à 11 semaines après clôture", remainingUnits: 10, featured: false, published: true, sortOrder: 30 },
+];
